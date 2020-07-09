@@ -11,19 +11,12 @@ client = discord.Client()
 
 
 def process_message(msg):
-    if msg.author is client.user:
-        return None
+    if msg.author is client.user or str(msg.author) != userid:
+        return False
     if type(msg.channel) == discord.TextChannel:
-        if client.user in msg.mentions:
-            if str(msg.author.id) != userid:
-                return False
-            return True
-        else:
-            return None
-    else:
-        if msg.author.id != userid:
+        if client.user not in msg.mentions:
             return False
-        return True
+    return True
 
 
 @client.event
