@@ -1,13 +1,17 @@
 import config
 import discord
+import os
 import personalcommands
+import userdetails
 import usercommands
 
 
 client = discord.Client()
 
 cmd_dict = {
-            "juan": usercommands.juan
+            "juan": usercommands.juan,
+            "balance": usercommands.balance,
+            "gamble": usercommands.gamble
             }
 
 p_cmd_dict = {
@@ -41,8 +45,19 @@ async def on_message(message):
 
 
 @client.event
+async def on_reaction_add(reaction, user):
+    if "philcoin" in str(reaction) and reaction.message.author.id != user.id:
+        userdetails.add_philcoin(reaction.message.author.id, 1)
+
+
+@client.event
 async def on_ready():
     print('FurretBot started')
-
+    if os.stat("data/philbank.json").st_size != 0:
+        userdetails.start_bank()
+    for user in client.users:
+        if not userdetails.register_exists(user.id):
+            userdetails.add_register(user.id, userdetails.Register(user.name, 0))
+    userdetails.save_philbank()
 
 client.run(config.token)

@@ -10,13 +10,13 @@ def juan_processing(buffer):
     width, height = 1219, 684
     im = Image.open(buffer).convert(mode='RGBA')
     im = im.resize((width, height), resample=Image.ANTIALIAS)
-    bg = Image.open('images/juan/juan_bg.png').convert(mode='RGBA')
+    bg = Image.open('data/images/juan/juan_bg.png').convert(mode='RGBA')
     im = im.transform((width * 4, height * 4), Image.PERSPECTIVE, COEFFS, Image.BICUBIC)
     im = im.resize((bg.width, bg.height), resample=Image.ANTIALIAS)
 
     bg = Image.alpha_composite(bg, im)
 
-    fg = Image.open('images/juan/juan_fg.png').convert(mode='RGBA')
+    fg = Image.open('data/images/juan/juan_fg.png').convert(mode='RGBA')
     bg = Image.alpha_composite(bg, fg)
 
     output = io.BytesIO()
