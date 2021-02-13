@@ -33,7 +33,7 @@ def get_register(user_id):
 def add_philcoin(user_id, name, amount):
     try:
         user = get_register(user_id)
-        user.balance += amount
+        user.balance += int(amount)
         user.save()
     except Register.DoesNotExist:
         add_register(user_id, name, amount)
