@@ -13,7 +13,7 @@ else:
 
 
 class Register(Model):
-    user_id = IntegerField()
+    user_id = TextField()
     name = TextField()
     balance = IntegerField()
 
