@@ -35,7 +35,7 @@ async def gamble(message, command):
             else:
                 rng = 1
                 response += f" You won! You gained {gamble_amt} philcoins."
-            userdetails.add_philcoin(message.author.id, message.author,name, rng * gamble_amt)
+            userdetails.add_philcoin(message.author.id, message.author.name, rng * gamble_amt)
     except IndexError:
         response += " Incorrect usage of gamble command."
     await message.channel.send(response)
