@@ -53,11 +53,11 @@ async def on_ready():
     print('FurretBot started')
     if not os.path.exists('data/philbank.json'):
         open('data/philbank.json', 'w')
-    if os.stat("data/philbank.json").st_size != 0:
-        userdetails.start_bank()
     for user in client.users:
         if not userdetails.register_exists(user.id):
             userdetails.add_register(user.id, userdetails.Register(user.name, 0))
     userdetails.save_philbank()
+    if os.stat("data/philbank.json").st_size != 0:
+        userdetails.start_bank()
 
 client.run(os.environ['token'])
