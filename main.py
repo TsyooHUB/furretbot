@@ -8,7 +8,7 @@ import usercommands
 
 client = discord.Client()
 global client_id 
-client_id = client.user.id
+client_id = client.id
 
 cmd_dict = {
             "juan": usercommands.juan,
