@@ -3,5 +3,5 @@ peewee
 Pillow
 psycopg2
 pyscreenshot
+pyyaml
 random-word
-yaml
