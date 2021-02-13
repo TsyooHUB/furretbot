@@ -1,4 +1,4 @@
-from random-word import RandomWords
+from random_word import RandomWords
 
 import config
 import discord
