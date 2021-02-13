@@ -28,4 +28,4 @@ async def give_philcoin(message):
 
 async def generate_random_word(message):
     r = RandomWords()
-    await message.channel.send(r.get_random_word(hasDictionaryDef="true", includePartOfSpeech="noun, adj"))
+    await message.channel.send(r.get_random_word(hasDictionaryDef="true", includePartOfSpeech="noun, adj", minCorpusCount=5))
