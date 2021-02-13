@@ -18,7 +18,7 @@ async def drop_tables(message):
 
 
 async def give_philcoin(message):
-    amount = message.content.split[-1]
+    amount = message.content.split()[-1]
     response = "Gave "
     for user in message.mentions:
         if user.id != client_id:
