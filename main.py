@@ -60,4 +60,4 @@ async def on_ready():
             userdetails.add_register(user.id, userdetails.Register(user.name, 0))
     userdetails.save_philbank()
 
-client.run(config.token)
+client.run(os.environ('token'))
