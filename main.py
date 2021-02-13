@@ -6,10 +6,6 @@ import userdetails
 import usercommands
 
 
-client = discord.Client()
-global client_id 
-
-
 cmd_dict = {
             "juan": usercommands.juan,
             "balance": usercommands.balance,
@@ -58,5 +54,6 @@ async def on_ready():
     print('FurretBot started')
     
 
+client = discord.Client()
 client.run(os.environ['token'])
-client_id = client.user.id
+config.client_id = client.user.id
