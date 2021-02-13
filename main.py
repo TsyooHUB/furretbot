@@ -28,7 +28,7 @@ async def on_message(message):
                 if cmd_name == usr_cmd[0]:
                     await cmd_dict[cmd_name](message, usr_cmd)
 
-        if message.author is client.user or str(message.author.id) != os.environ['owner_id']
+        if message.author is client.user or str(message.author.id) != os.environ['owner_id']:
             return False
         
         if type(message.channel) == discord.TextChannel:
