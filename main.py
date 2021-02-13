@@ -15,10 +15,7 @@ cmd_dict = {
             }
 
 p_cmd_dict = {
-            "shut down": personalcommands.shutdown,
-            "turn off": personalcommands.turnoff,
-            "restart": personalcommands.restart,
-            "screen": personalcommands.screenshot
+            "debug philbank": personalcommands.debug_philbank
             }
 
 
@@ -33,6 +30,7 @@ async def on_message(message):
 
         if message.author is client.user or str(message.author.id) != config.userid:
             return False
+        
         if type(message.channel) == discord.TextChannel:
             if client.user not in message.mentions:
                 return False
