@@ -53,7 +53,7 @@ async def on_reaction_add(reaction, user):
 @client.event
 async def on_ready():
     print('FurretBot started')
-    f not os.path.exists('data/philbank.json'):
+    if not os.path.exists('data/philbank.json'):
         open('data/philbank.json', 'w')
     if os.stat("data/philbank.json").st_size != 0:
         userdetails.start_bank()
