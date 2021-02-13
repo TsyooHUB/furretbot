@@ -1,5 +1,5 @@
 discord
 peewee
 Pillow
-psychopg2
+psycopg2
 pyscreenshot
