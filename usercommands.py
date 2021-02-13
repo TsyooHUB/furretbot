@@ -16,12 +16,12 @@ async def juan(message, command):
 
 async def balance(message, command):
     await message.channel.send(f"{message.author.mention} , your philcoin balance is "
-                               f"{userdetails.get_philcoin_balance(message.author.id)}.")
+                               f"{userdetails.get_philcoin_balance(message.author.id, message.author.name)}.")
 
 
 async def gamble(message, command):
     reply = message.author.mention
-    curr_balance = userdetails.get_philcoin_balance(message.author.id)
+    curr_balance = userdetails.get_philcoin_balance(message.author.id, message.author.name)
     try:
         gamble_amt = int(command[1])
         if gamble_amt > curr_balance:
