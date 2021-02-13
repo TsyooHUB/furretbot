@@ -1,5 +1,5 @@
 from peewee import *
-from playhouse._url import connect
+from playhouse.db_url import connect
 
 import os
 
