@@ -3,3 +3,4 @@ peewee
 Pillow
 psycopg2
 pyscreenshot
+random-word

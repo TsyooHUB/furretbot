@@ -1,11 +1,9 @@
+from random-word import RandomWords
+
 import config
 import discord
 import os
 import userdetails
-
-
-async def debug_philbank(message):
-    print(userdetails.get_philbank())
 
 
 async def create_tables(message):
@@ -26,3 +24,8 @@ async def give_philcoin(message):
             userdetails.add_philcoin(user.id, user.name, amount)
             response += user.mention + " "
     await message.channel.send(f"{response} {amount} philcoins.")
+
+
+async def generate_random_word(message):
+    r = RandomWords()
+    await message.channel.send(r.get_random_word(hasDictionaryDef="true", includePartOfSpeech="noun, adj"))
