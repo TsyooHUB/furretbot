@@ -42,7 +42,7 @@ def get_register(user_id):
 def get_philbank():
     philbank_arr = []
     for register in philbank:
-        philbank_str.append(register)
+        philbank_arr.append(register)
     return philbank_arr
 
 
