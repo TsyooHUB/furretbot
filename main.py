@@ -17,8 +17,7 @@ cmd_dict = {
 p_cmd_dict = {
             "debug philbank": personalcommands.debug_philbank,
             "create tables": personalcommands.create_tables,
-            "open connection": personalcommands.open_connection,
-            "close connection": personalcommands.close_connection
+            "drop tables": personalcommands.drop_tables
             }
 
 
