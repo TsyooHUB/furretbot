@@ -4,9 +4,16 @@ import os
 
 
 if os.environ.get('DATABASE_URL'):
-    db = connect(os.environ.get('DATABASE_URL'))
+    DATABASE_URL = os.environ.get('DATABASE_URL')
+    db_parse = urlparse(DATABASE_URL)
+    username = db_parse.username
+    password = db_parse.password
+    path = db_parse.path[1:]
+    host = db_parse.hostname
+    port = db_parse.port
+    database = PostgresqlDatabase(path, user=username, password=password, host=host, port=port)
 else:
-    db = SqliteDatabase('registers.db')
+    db = PostgresqlDatabase('registers.db')
     db.connect()
     dc.create_tables(['Register'])
 
