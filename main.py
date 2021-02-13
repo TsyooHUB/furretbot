@@ -7,6 +7,7 @@ import usercommands
 
 
 client = discord.Client()
+global client_id = client.user.id
 
 cmd_dict = {
             "juan": usercommands.juan,
@@ -17,7 +18,8 @@ cmd_dict = {
 p_cmd_dict = {
             "debug philbank": personalcommands.debug_philbank,
             "create tables": personalcommands.create_tables,
-            "drop tables": personalcommands.drop_tables
+            "drop tables": personalcommands.drop_tables,
+            "give philcoins": personalcommands.give_philcoin
             }
 
 
