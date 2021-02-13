@@ -8,7 +8,7 @@ import usercommands
 
 client = discord.Client()
 global client_id 
-client_id = client.id
+
 
 cmd_dict = {
             "juan": usercommands.juan,
@@ -59,3 +59,4 @@ async def on_ready():
     
 
 client.run(os.environ['token'])
+client_id = client.user.id
