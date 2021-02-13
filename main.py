@@ -15,7 +15,8 @@ cmd_dict = {
             }
 
 p_cmd_dict = {
-            "debug philbank": personalcommands.debug_philbank
+            "debug philbank": personalcommands.debug_philbank,
+            "create tables": personalcommands.create_tables
             }
 
 
@@ -52,6 +53,6 @@ async def on_reaction_add(reaction, user):
 async def on_ready():
     print('FurretBot started')
     
-    
+
 userdetails.db.connect()
 client.run(os.environ['token'])
