@@ -1,6 +1,10 @@
 from peewee import *
 
-db = SqliteDatabase('registers.db')
+if os.environ.get('DATABASE_URL'):
+    db = connect(os.environ.get('DATABASE_URL'))
+else:
+    db = SqliteDatabase('registers.db')
+
 
 class Register(Model):
     user_id = IntegerField()
