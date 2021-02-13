@@ -1,4 +1,5 @@
 discord
 peewee
 Pillow
+psychopg2
 pyscreenshot
