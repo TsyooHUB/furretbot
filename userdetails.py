@@ -1,9 +1,14 @@
 from peewee import *
 
+import os
+
+
 if os.environ.get('DATABASE_URL'):
     db = connect(os.environ.get('DATABASE_URL'))
 else:
     db = SqliteDatabase('registers.db')
+    db.connect()
+    dc.create_tables(['Register'])
 
 
 class Register(Model):

@@ -56,5 +56,4 @@ async def on_ready():
     print('FurretBot started')
     
 
-userdetails.db.connect()
 client.run(os.environ['token'])
