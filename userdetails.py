@@ -39,6 +39,13 @@ def get_register(user_id):
     return philbank[str(user_id)]
 
 
+def get_philbank():
+    philbank_arr = []
+    for register in philbank:
+        philbank_str.append(register)
+    return philbank_arr
+
+
 def add_philcoin(user_id, amount):
     if register_exists(user_id):
         philbank[str(user_id)].set_balance(philbank[str(user_id)].get_balance()+amount)
