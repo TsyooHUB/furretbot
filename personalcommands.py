@@ -12,7 +12,7 @@ async def create_tables(message):
 
 
 async def drop_tables(message):
-    userdetails.db.drop_tables([userdetails.Register, db_manager.Pet])
+    userdetails.db.drop_tables([db_manager.Register, db_manager.Pet])
     await message.channel.send("Tables dropped")
 
 
