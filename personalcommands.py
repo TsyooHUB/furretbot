@@ -27,10 +27,10 @@ async def give_philcoin(message):
 
 
 async def create(message):
-    name = message.content.split()[-1]
+    pet_name = message.content.split()[-1]
     response = "Gave "
     for user in message.mentions:
-        pet.create_pet(user.id, name)
+        pet.create_pet(user.id, pet_name)
         response += user.mention + " "
-    await message.channel.send(f"{response} {name} phil.")
+    await message.channel.send(f"{response} {pet_name} phil.")
     
