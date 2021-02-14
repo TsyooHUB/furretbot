@@ -54,4 +54,4 @@ async def buy_pet(message, command):
 
 
 async def pets(message, command):
-    return message.author.mention + pet.get_pets()
+    return message.author.mention + pet.get_pets(message.author.id)
