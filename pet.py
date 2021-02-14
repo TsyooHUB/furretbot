@@ -7,7 +7,7 @@ import time
 
 def generate_pet(user_id):
     new_name = generate_name()
-    time.sleep(.5f)
+    time.sleep(.5)
     pet = Pet(owner_id=user_id, name=new_name, iv=generate_iv(), level=1, exp=0)
     pet.save()
     return new_name
