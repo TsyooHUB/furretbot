@@ -21,6 +21,7 @@ def generate_iv():
 
 def get_pets(user_id):
     pet_list = "Your pets:\n"
+    return Pet.get(Pet.owner_id == str(user_id))
     for pet in Pet.get(Pet.owner_id == str(user_id)):
         pet_list += f"[{pet.name} phil - Level: {pet.level}, Exp: {pet.exp}]\n"
     return pet_list
