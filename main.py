@@ -12,14 +12,14 @@ client = discord.Client()
 cmd_dict = {
             "juan": usercommands.juan,
             "balance": usercommands.balance,
-            "gamble": usercommands.gamble
+            "gamble": usercommands.gamble,
+            "buy_pet": usercommands.buy_pet
             }
 
 p_cmd_dict = {
             "create tables": personalcommands.create_tables,
             "drop tables": personalcommands.drop_tables,
-            "give philcoins": personalcommands.give_philcoin,
-            "random word": personalcommands.generate_random_word
+            "give philcoins": personalcommands.give_philcoin
             }
 
 

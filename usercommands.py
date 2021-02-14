@@ -1,6 +1,7 @@
 import aiohttp
 import discord
 import io
+import pet
 import random
 import userdetails
 
@@ -38,4 +39,15 @@ async def gamble(message, command):
             userdetails.add_philcoin(message.author.id, message.author.name, rng * gamble_amt)
     except IndexError:
         response += " Incorrect usage of gamble command."
+    await message.channel.send(response)
+
+
+async def buy_pet(message, command):
+    response = message.author.mention
+    curr_balance = userdetails.get_philcoin_balance(message.author.id, message.author.name)
+    if curr_balance < 500:
+        response += "You don't have have enough philcoins to purchase a pet."
+    else:
+        userdetails.add_philcoin(message.amount.id, message.author.name, -500)
+        response += f"You got a {pet.generate_pet(message.author.id)}!"
     await message.channel.send(response)
