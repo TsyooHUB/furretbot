@@ -47,8 +47,10 @@ async def buy_pet(message, command):
     curr_balance = userdetails.get_philcoin_balance(message.author.id, message.author.name)
     if curr_balance < 500:
         response += "You don't have have enough philcoins to purchase a pet."
+    elif pet.get_num_pets(message.author.id) >= pet.MAX_PETS:
+        response += f"You have too many pets, the maximum amount you can have is {pet.MAX_PETS}"
     else:
-        userdetails.add_philcoin(message.author.id, message.author.name, -500)
+        userdetails.add_philcoin(message.author.id, message.author.name, -1 * pet.CURRENT_PET_PRICE)
         response += f" You got a {pet.generate_pet(message.author.id)} phil!"
     await message.channel.send(response)
 
@@ -62,6 +64,18 @@ async def pickup(message, command):
     if pickup:
         userdetails.add_philcoin(message.author.id, message.author.name, pickup)
         response = f"{message.author.mention}, your {command[1]} phil got you {pickup} philcoins!"
+    elif pickup is None:
+        response = f"Something went wrong when attempting to get your pickup from {command[1]}"
     else:
-        response = "Incorrect usage of pickup command."
+        response = f"You have already claimed the pickup award from {command[1]} phil today."
+    await message.channel.send(response)
+
+
+async def fuse(message, command):
+    response = message.author.mention
+    try:
+        pet.fuse_pets(pet.get_pet(command[1]), pet.get_pet(command[2]))
+        response += f" {command[2]} phil successfully fused into {command[1]} phil."
+    except:
+        response +=" something broke"
     await message.channel.send(response)
