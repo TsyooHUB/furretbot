@@ -80,3 +80,7 @@ def sigma(range):
     for i in range(range):
         sum += i+1
     return sum
+
+
+def delete_pet(pet):
+    pet.delete_instance()

@@ -79,3 +79,8 @@ async def fuse(message, command):
     except:
         response +=" something broke"
     await message.channel.send(response)
+
+
+async def delete_pet(message, command):
+    pet.delete_pet(pet.get_pet(command[1]))
+    await message.channel.send("deleted tha pet")
