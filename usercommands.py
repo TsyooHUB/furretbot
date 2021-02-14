@@ -51,3 +51,7 @@ async def buy_pet(message, command):
         userdetails.add_philcoin(message.author.id, message.author.name, -500)
         response += f" You got a {pet.generate_pet(message.author.id)} phil!"
     await message.channel.send(response)
+
+
+async def pets(message, command):
+    return message.author.mention + pet.get_pets

@@ -17,3 +17,14 @@ def generate_name():
 
 def generate_iv():
     return randint(1,10)
+
+
+def get_pets(user_id):
+    pet_list = "Your pets:\n"
+    for pet in Pet.get(Pet.owner_id == str(user_id)):
+        pet_list += f"[{pet.name} phil - Level: {pet.level}, Exp: {pet.exp}]\n"
+    return get_pets
+    
+
+def get_register(user_id):
+    return Register.get(Register.user_id == str(user_id))
