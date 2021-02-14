@@ -48,6 +48,6 @@ async def buy_pet(message, command):
     if curr_balance < 500:
         response += "You don't have have enough philcoins to purchase a pet."
     else:
-        userdetails.add_philcoin(message.amount.id, message.author.name, -500)
+        userdetails.add_philcoin(message.author.id, message.author.name, -500)
         response += f"You got a {pet.generate_pet(message.author.id)}!"
     await message.channel.send(response)
