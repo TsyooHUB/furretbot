@@ -2,15 +2,18 @@ from db_manager import Pet
 from random_word import RandomWords
 from random import randint
 
+import time
 
-async def generate_pet(user_id):
-    await new_name = generate_name()
+
+def generate_pet(user_id):
+    new_name = generate_name()
+    time.sleep(.5f)
     pet = Pet(owner_id=user_id, name=new_name, iv=generate_iv(), level=1, exp=0)
     pet.save()
     return new_name
 
 
-async def generate_name():
+def generate_name():
     r = RandomWords()
     return r.get_random_word(hasDictionaryDef="true", includePartOfSpeech="noun, adj", minCorpusCount=10)
 
