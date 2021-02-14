@@ -17,6 +17,11 @@ def generate_pet(user_id):
     return new_name
 
 
+def create_pet(user_id, pet_name):
+    pet = Pet(owner_id=user_id, name=pet_name, iv=generate_iv(), level=1, exp=0, lastPickup=date(2021, 1, 1))
+    pet.save()
+
+
 def generate_name():
     r = RandomWords()
     return r.get_random_word(hasDictionaryDef="true", includePartOfSpeech="noun, adj", minCorpusCount=10)

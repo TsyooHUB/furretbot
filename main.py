@@ -23,7 +23,8 @@ cmd_dict = {
 p_cmd_dict = {
             "create tables": personalcommands.create_tables,
             "drop tables": personalcommands.drop_tables,
-            "give philcoins": personalcommands.give_philcoin
+            "give philcoins": personalcommands.give_philcoin,
+            "create": personalcommands.create
             }
 
 
