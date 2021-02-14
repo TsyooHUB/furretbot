@@ -16,4 +16,4 @@ def generate_name():
 
 
 def generate_iv():
-    return random.randint(1,10)
+    return randint(1,10)
