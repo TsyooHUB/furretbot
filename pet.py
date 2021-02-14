@@ -61,14 +61,14 @@ def compute_pickup(iv, level):
 def fuse_pets(pet1, pet2):
     total_exp = sigma(pet2.level) + pet2.exp
     while total_exp > 0:
-        exp_to_level = pet1.level+1 - pet1.exp
+        exp_to_level = pet1.level - pet1.exp
         if total_exp >= exp_to_level:
             total_exp -= exp_to_level
             pet1.exp += exp_to_level
         else:
             pet1.exp += total_exp
             total_exp = 0
-        if pet1.exp == pet1.level+1:
+        if pet1.exp == pet1.level:
             pet1.level+=1
             pet1.exp = 0
     pet1.save()
