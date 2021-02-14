@@ -53,7 +53,7 @@ async def on_message(message):
 @client.event
 async def on_reaction_add(reaction, user):
     if "philcoin" in str(reaction) and reaction.message.author.id != user.id:
-        userdetails.add_philcoin(reaction.message.author.id, reaction.message.name, 1)
+        userdetails.add_philcoin(reaction.message.author.id, reaction.message.author.name, 1)
 
 
 @client.event
