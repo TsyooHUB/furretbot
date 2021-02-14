@@ -4,6 +4,7 @@ import config
 import discord
 import os
 import db_manager
+import userdetails
 
 
 async def create_tables(message):
