@@ -21,7 +21,6 @@ async def give_philcoin(message):
     amount = message.content.split()[-1]
     response = "Gave "
     for user in message.mentions:
-        if user.id != config.client_id:
-            userdetails.add_philcoin(user.id, user.name, amount)
-            response += user.mention + " "
+        userdetails.add_philcoin(user.id, user.name, amount)
+        response += user.mention + " "
     await message.channel.send(f"{response} {amount} philcoins.")

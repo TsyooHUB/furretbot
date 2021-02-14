@@ -27,6 +27,7 @@ class Pet(Model):
     iv = IntegerField()
     level = IntegerField()
     exp = IntegerField()
+    lastPickup = DateField()
 
     class Meta:
         database = db

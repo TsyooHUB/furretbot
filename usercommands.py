@@ -55,3 +55,13 @@ async def buy_pet(message, command):
 
 async def pets(message, command):
     await message.channel.send(message.author.mention + pet.get_pets(message.author.id))
+
+
+async def pickup(message, command):
+    pickup = pet.get_pickup(command[1])
+    if pickup:
+        userdetails.add_philcoin(message.author.id, message.author.name, pickup)
+        response = f"{message.author.mention}, your {command[1]} phil got you {pickup} philcoins!"
+    else:
+        response = "Incorrect usage of pickup command."
+    await message.channel.send(response)
