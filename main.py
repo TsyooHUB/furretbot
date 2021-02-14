@@ -15,7 +15,8 @@ cmd_dict = {
             "gamble": usercommands.gamble,
             "buy_pet": usercommands.buy_pet,
             "pets": usercommands.pets,
-            "pickup": usercommands.pickup
+            "pickup": usercommands.pickup,
+            "fuse": usercommands.fuse
             }
 
 p_cmd_dict = {
