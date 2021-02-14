@@ -1,9 +1,10 @@
 from random_word import RandomWords
 
 import config
+import db_manager
 import discord
 import os
-import db_manager
+import pet
 import userdetails
 
 
