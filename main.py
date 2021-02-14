@@ -10,22 +10,21 @@ client = discord.Client()
 
 
 cmd_dict = {
-            "juan": usercommands.juan,
-            "balance": usercommands.balance,
-            "gamble": usercommands.gamble,
-            "buy_pet": usercommands.buy_pet,
-            "pets": usercommands.pets,
-            "pickup": usercommands.pickup,
-            "fuse": usercommands.fuse,
-            "delete": usercommands.delete_pet
-            }
+    "juan": usercommands.juan,
+    "balance": usercommands.balance,
+    "gamble": usercommands.gamble,
+    "buy_pet": usercommands.buy_pet,
+    "pets": usercommands.pets,
+    "pickup": usercommands.pickup,
+    "fuse": usercommands.fuse,
+}
 
 p_cmd_dict = {
-            "create tables": personalcommands.create_tables,
-            "drop tables": personalcommands.drop_tables,
-            "give philcoins": personalcommands.give_philcoin,
-            "create": personalcommands.create
-            }
+    "create tables": personalcommands.create_tables,
+    "drop tables": personalcommands.drop_tables,
+    "give philcoins": personalcommands.give_philcoin,
+    "create": personalcommands.create,
+}
 
 
 @client.event
@@ -37,9 +36,12 @@ async def on_message(message):
                 if cmd_name == usr_cmd[0]:
                     await cmd_dict[cmd_name](message, usr_cmd)
 
-        if message.author is client.user or str(message.author.id) != os.environ['owner_id']:
+        if (
+            message.author is client.user
+            or str(message.author.id) != os.environ["owner_id"]
+        ):
             return False
-        
+
         if type(message.channel) == discord.TextChannel:
             if client.user not in message.mentions:
                 return False
@@ -54,13 +56,15 @@ async def on_message(message):
 @client.event
 async def on_reaction_add(reaction, user):
     if "philcoin" in str(reaction) and reaction.message.author.id != user.id:
-        userdetails.add_philcoin(reaction.message.author.id, reaction.message.author.name, 1)
+        userdetails.add_philcoin(
+            reaction.message.author.id, reaction.message.author.name, 1
+        )
 
 
 @client.event
 async def on_ready():
-    print('FurretBot started')
-    
+    print("FurretBot started")
 
-client.run(os.environ['token'])
+
+client.run(os.environ["token"])
 config.client_id = client.user.id
