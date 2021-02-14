@@ -5,7 +5,7 @@ from random import randint
 
 import time
 
-CURRENT_PET_PRICE = 500
+CURRENT_PET_PRICE = 100
 MAX_PETS = 10
 
 def generate_pet(user_id):
