@@ -1,6 +1,7 @@
 from db_manager import Pet
-
+from random_word import RandomWords
 import random
+
 
 def generate_pet(user_id):
     new_name = generate_name()
