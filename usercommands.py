@@ -75,7 +75,7 @@ async def pets(message, command):
 
 async def pickup(message, command):
     pickup = pet.get_pickup(command[1])
-    if pickup:
+    if pickup and pickup.owner_id == message.author.id:
         userdetails.add_philcoin(message.author.id, message.author.name, pickup)
         response = f"{message.author.mention}, your {command[1]} phil got you {pickup} philcoins!"
     elif pickup is None:
@@ -91,7 +91,11 @@ async def pickup(message, command):
 
 async def fuse(message, command):
     response = message.author.mention
-
-    pet.fuse_pets(pet.get_pet(command[1]), pet.get_pet(command[2]))
-    response += f" {command[2]} phil successfully fused into {command[1]} phil."
+    pet1 = pet.get_pet(command[1])
+    pet2 = pet.get_pet(command[2])
+    if pet1.owner_id == message.author.id and pet2.owner_id == message.author.id:
+        pet.fuse_pets(pet1, pet2)
+        response += f" {command[2]} phil successfully fused into {command[1]} phil."
+    else:
+        response += " you are not the owner of this pet"
     await message.channel.send(response)
