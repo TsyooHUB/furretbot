@@ -76,7 +76,7 @@ def fuse_pets(pet1, pet2):
 
 
 def sigma(n):
-    sum = 0
+    sum = 1
     for i in range(n):
         sum += i
     return sum
