@@ -1,6 +1,6 @@
 from db_manager import Pet
 from random_word import RandomWords
-import random
+from random import randint
 
 
 def generate_pet(user_id):
