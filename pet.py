@@ -75,9 +75,9 @@ def fuse_pets(pet1, pet2):
     pet2.delete_instance()
 
 
-def sigma(range):
+def sigma(n):
     sum = 0
-    for i in range(range):
+    for i in range(n):
         sum += i+1
     return sum
 
