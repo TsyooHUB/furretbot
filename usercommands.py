@@ -73,11 +73,9 @@ async def pickup(message, command):
 
 async def fuse(message, command):
     response = message.author.mention
-    try:
-        pet.fuse_pets(pet.get_pet(command[1]), pet.get_pet(command[2]))
-        response += f" {command[2]} phil successfully fused into {command[1]} phil."
-    except:
-        response +=" something broke"
+
+    pet.fuse_pets(pet.get_pet(command[1]), pet.get_pet(command[2]))
+    response += f" {command[2]} phil successfully fused into {command[1]} phil."
     await message.channel.send(response)
 
 
