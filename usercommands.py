@@ -76,7 +76,7 @@ async def pets(message, command):
 async def pickup(message, command):
     pickup = pet.get_pet(command[1])
     pickup_amount = pet.get_pickup(pickup)
-    if pickup and pickup.owner_id == message.author.id:
+    if pickup_amount and pickup.owner_id == message.author.id:
         userdetails.add_philcoin(message.author.id, message.author.name, pickup_amount)
         response = f"{message.author.mention}, your {command[1]} phil got you {pickup_amount} philcoins!"
     else:

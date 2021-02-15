@@ -65,6 +65,8 @@ def get_pet(name):
 
 
 def get_pickup(pet):
+    print(pet.lastPickup)
+    print(date.today())
     if pet.lastPickup.day < date.today().day:
         pet.lastPickup = date.today()
         pet.save()
