@@ -74,14 +74,11 @@ async def pets(message, command):
 
 
 async def pickup(message, command):
-    pickup = pet.get_pickup(command[1])
+    pickup = pet.get_pet(command[1])
+    pickup_amount = pet.get_pickup(pickup)
     if pickup and pickup.owner_id == message.author.id:
-        userdetails.add_philcoin(message.author.id, message.author.name, pickup)
-        response = f"{message.author.mention}, your {command[1]} phil got you {pickup} philcoins!"
-    elif pickup is None:
-        response = (
-            f"Something went wrong when attempting to get your pickup from {command[1]}"
-        )
+        userdetails.add_philcoin(message.author.id, message.author.name, pickup_amount)
+        response = f"{message.author.mention}, your {command[1]} phil got you {pickup_amount} philcoins!"
     else:
         response = (
             f"You have already claimed the pickup award from {command[1]} phil today."

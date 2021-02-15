@@ -64,17 +64,13 @@ def get_pet(name):
     return Pet.get(Pet.name == name)
 
 
-def get_pickup(name):
-    try:
-        pet = get_pet(name)
-        if pet.lastPickup.day < date.today().day:
-            pet.lastPickup = date.today()
-            pet.save()
-            return compute_pickup(pet.iv, pet.level)
-        else:
-            return False
-    except:
-        return None
+def get_pickup(pet):
+    if pet.lastPickup.day < date.today().day:
+        pet.lastPickup = date.today()
+        pet.save()
+        return compute_pickup(pet.iv, pet.level)
+    else:
+        return False
 
 
 def compute_pickup(iv, level):
