@@ -75,9 +75,7 @@ async def pets(message, command):
 
 async def pickup(message, command):
     pickup = pet.get_pet(command[1])
-    print(pickup.owner_id)
-    print(message.author.id)
-    if str(pickup.owner_id) == str(message.author.id):
+    if pickup.owner_id == str(message.author.id):
         pickup_amount = pet.get_pickup(pickup)
         if pickup_amount:
             userdetails.add_philcoin(
@@ -95,7 +93,9 @@ async def fuse(message, command):
     response = message.author.mention
     pet1 = pet.get_pet(command[1])
     pet2 = pet.get_pet(command[2])
-    if pet1.owner_id == message.author.id and pet2.owner_id == message.author.id:
+    if pet1.owner_id == str(message.author.id) and pet2.owner_id == str(
+        message.author.id
+    ):
         pet.fuse_pets(pet1, pet2)
         response += f" {command[2]} phil successfully fused into {command[1]} phil."
     else:
