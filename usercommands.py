@@ -79,8 +79,13 @@ async def pickup(message, command):
     print(message.author.id)
     if str(pickup.owner_id) == str(message.author.id):
         pickup_amount = pet.get_pickup(pickup)
-        userdetails.add_philcoin(message.author.id, message.author.name, pickup_amount)
-        response = f"{message.author.mention}, your {command[1]} phil got you {pickup_amount} philcoins!"
+        if pickup_amount:
+            userdetails.add_philcoin(
+                message.author.id, message.author.name, pickup_amount
+            )
+            response = f"{message.author.mention}, your {command[1]} phil got you {pickup_amount} philcoins!"
+        else:
+            response = f"{message.author.mention}, you've already picked up from this phil today."
     else:
         response = f"You don't own a {command[1]} phil."
     await message.channel.send(response)
