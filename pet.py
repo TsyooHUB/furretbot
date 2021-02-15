@@ -76,7 +76,7 @@ def get_pickup(pet):
 
 
 def compute_pickup(iv, level):
-    return int(round((randint(1, 10) + iv) * (1 + 0.1 * (level - 1)), 0))
+    return int(round((randint(1, 10) + iv) * level))
 
 
 def fuse_pets(pet1, pet2):
