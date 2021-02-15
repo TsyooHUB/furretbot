@@ -55,7 +55,7 @@ async def buy_pet(message, command):
     curr_balance = userdetails.get_philcoin_balance(
         message.author.id, message.author.name
     )
-    if curr_balance < 500:
+    if curr_balance < pet.CURRENT_PET_PRICE:
         response += "You don't have have enough philcoins to purchase a pet."
     elif pet.get_num_pets(message.author.id) >= pet.MAX_PETS:
         response += (
@@ -75,14 +75,12 @@ async def pets(message, command):
 
 async def pickup(message, command):
     pickup = pet.get_pet(command[1])
-    pickup_amount = pet.get_pickup(pickup)
-    if pickup_amount and pickup.owner_id == message.author.id:
+    if pickup.owner_id == message.author.id:
+        pickup_amount = pet.get_pickup(pickup)
         userdetails.add_philcoin(message.author.id, message.author.name, pickup_amount)
         response = f"{message.author.mention}, your {command[1]} phil got you {pickup_amount} philcoins!"
     else:
-        response = (
-            f"You have already claimed the pickup award from {command[1]} phil today."
-        )
+        response = f"You don't own a {command[1]} phil."
     await message.channel.send(response)
 
 
