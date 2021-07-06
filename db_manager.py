@@ -7,9 +7,9 @@ import os
 if os.environ.get("DATABASE_URL"):
     db = connect(os.environ.get("DATABASE_URL"))
 else:
-    db = SqliteDatabase("registers.db")
+    db = SqliteDatabase("users.db")
     db.connect()
-    db.create_tables(["Register"])
+    db.create_tables(["User"])
 
 
 class User(Model):
