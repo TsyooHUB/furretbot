@@ -15,7 +15,6 @@ else:
 class User(Model):
     user_id = TextField()
     name = TextField()
-    balance = IntegerField()
 
     class Meta:
         database = db

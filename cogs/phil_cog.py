@@ -1,7 +1,6 @@
 import aiohttp
 import discord
 import io
-import user_util
 
 from discord.ext import commands
 from imagehandler import juan_processing
@@ -16,13 +15,6 @@ class Phil(commands.Cog):
                 buffer = io.BytesIO(await resp.read())
         await ctx.send(
             file=discord.File(fp=juan_processing(buffer), filename="image.png")
-        )
-
-    @commands.command()
-    async def balance(self, ctx):
-        await ctx.send(
-            f"{ctx.author.mention} , your philcoin balance is "
-            f"{user_util.get_philcoin_balance(ctx.author.id, ctx.author.name)}."
         )
 
 
