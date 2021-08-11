@@ -1,5 +1,5 @@
 discord
-discord_slash
+discord-py-slash-command
 peewee
 Pillow
 psycopg2
