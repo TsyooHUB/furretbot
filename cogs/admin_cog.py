@@ -13,7 +13,7 @@ class Admin(commands.cog):
     async def drop_tables(self, ctx):
         db_manager.db.drop_tables(db_manager.User)
         await ctx.send("Tables dropped")
-
+    
 
 def setup(bot):
     bot.add_cog(Admin(bot))
