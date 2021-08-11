@@ -11,7 +11,7 @@ for filename in os.listdir("cogs"):
         bot.load_extension(f"cogs.{filename[:-3]}")
 bot.run(os.environ["token"])
 
-@bot.command()
+@commands.command()
 async def load(ctx, extension):
     bot.load_extension(f'cogs.{extension}') #loads the extension in the "cogs" folder
     await ctx.send(f'Loaded "{extension}"')
@@ -20,9 +20,9 @@ async def load(ctx, extension):
     return
 
 
-@bot.command()
+@commands.command()
 async def unload(ctx, extension):
-    bot.unload_extension(f'cogs.{extension}') #unloads the extension in the "cogs" folder
+    client.unload_extension(f'cogs.{extension}') #unloads the extension in the "cogs" folder
     await ctx.send(f'Unloaded "{extension}"')
     print(f'Unoaded "{extension}"')
 
