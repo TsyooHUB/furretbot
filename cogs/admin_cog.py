@@ -3,7 +3,7 @@ import db_manager
 from discord.ext import commands
 
 
-class Admin(commands.cog):
+class Admin(commands.Cog):
     @commands.command
     async def create_tables(self, ctx):
         db_manager.db.create_tables(db_manager.User)
