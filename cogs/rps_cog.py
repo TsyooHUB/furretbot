@@ -16,7 +16,7 @@ class RPS(commands.Cog):
     
   action_row = create_actionrow(*buttons)
     
-  @cog_slash(name="challenge")
+  @commands.command()
   async def challenge(self, ctx):
     await ctx.send("Yahoo", components=[action_row])
 
