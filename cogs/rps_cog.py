@@ -3,8 +3,7 @@ import discord
 from discord.ext import commands
 from discord_slash.utils.manage_components import create_button, create_actionrow
 from discord_slash.model import ButtonStyle
-from discord_slash.cog_ext import cog_slash
-
+from discord_slash import cog_ext
 
 class RPS(commands.Cog):
   buttons = [
@@ -16,7 +15,7 @@ class RPS(commands.Cog):
     
   action_row = create_actionrow(*buttons)
     
-  @cog_slash.command()
+  @cog_ext.cog_slash()
   async def challenge(self, ctx):
     await ctx.send("Yahoo", components=[action_row])
 
