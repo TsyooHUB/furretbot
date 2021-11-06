@@ -9,7 +9,7 @@ from imagehandler import juan_processing
 class Phil(commands.Cog):
     @commands.command()
     async def juan(self, ctx):
-        img_link = ctx.message.context.split()[2]
+        img_link = ctx.message.content.split()[2]
         async with aiohttp.ClientSession() as session:
             async with session.get(img_link) as resp:
                 buffer = io.BytesIO(await resp.read())
